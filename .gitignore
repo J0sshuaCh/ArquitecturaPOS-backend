@@ -1,0 +1,16 @@
+.gradle
+build/
+!gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### OS ###
+.DS_Store
+Thumbs.db
