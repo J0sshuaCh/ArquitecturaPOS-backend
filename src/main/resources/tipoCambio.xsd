@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://pos.com/tipocambio"
+           targetNamespace="http://pos.com/tipocambio"
+           elementFormDefault="qualified">
+
+    <xs:element name="tipoCambioRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="monto" type="xs:decimal"/>
+                <xs:element name="monedaOrigen" type="xs:string"/>
+                <xs:element name="monedaDestino" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="tipoCambioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="montoOriginal" type="xs:decimal"/>
+                <xs:element name="montoConvertido" type="xs:decimal"/>
+                <xs:element name="monedaOrigen" type="xs:string"/>
+                <xs:element name="monedaDestino" type="xs:string"/>
+                <xs:element name="tasaCambio" type="xs:decimal"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
