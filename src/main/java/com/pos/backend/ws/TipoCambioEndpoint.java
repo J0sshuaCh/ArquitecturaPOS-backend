@@ -9,8 +9,6 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import java.math.BigDecimal;
-
 @Endpoint
 @RequiredArgsConstructor
 public class TipoCambioEndpoint {
@@ -22,15 +20,6 @@ public class TipoCambioEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "tipoCambioRequest")
     @ResponsePayload
     public TipoCambioResponse convertir(@RequestPayload TipoCambioRequest request) {
-        BigDecimal montoConvertido = tipoCambioService.convertir(
-                request.getMonto(), request.getMonedaOrigen(), request.getMonedaDestino());
-
-        TipoCambioResponse response = new TipoCambioResponse();
-        response.setMontoOriginal(request.getMonto());
-        response.setMontoConvertido(montoConvertido);
-        response.setMonedaOrigen(request.getMonedaOrigen().toUpperCase());
-        response.setMonedaDestino(request.getMonedaDestino().toUpperCase());
-        response.setTasaCambio(tipoCambioService.getTasaCambio());
-        return response;
+        return tipoCambioService.convertir(request);
     }
 }
